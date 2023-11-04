@@ -1,26 +1,47 @@
-## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
+# 문자열 덧셈 계산기
 
 ---
-## 학습 효과를 높이기 위해 추천하는 미션 진행 방법
+
+### 기능 요구사항
+* 쉼표 또는 콜론을 구분자로 가지는 문자열을 전달하는 경우 구분자를 기준으로 분리한 각 숫자의 합을 반환하라.
+* 앞의 기본 구분자 외에 커스텀 구분자를 지정 가능하다. 커스텀 구분자는 문자열 앞부분의 "//" 와 "\n" 사이에 위치하는 문자를 커스텀 구분자로 사용한다.
+* 문자열 계산기에 숫자 이외의 값 혹은 음수를 전달하는 경우 "RuntimeException"에외를 throw 한다.
+
+### 프로그래밍 요구사항
+* indent 를 1단으로 유지할 것.
+* 메소드는 최대 10라인을 넘기지 말 것.
+* else 를 사용하지 말 것.
+
+### 구현 기능
+* 구분자 기준 분리
+* 커스텀 구분자 판별
+* 숫자 이외의 값 혹은 음수 판별
+* 숫자 합
+  * 형 변환 (String -> Integer)
+* 
+
+### 구성
+* 실행 시, StringCalculator 객체를 생성한다.
+  * 하나의 계산기로 여러개의 연산을 할 수 있듯, calculate 메서드를 통해 연산할 String을 입력받는다.
+  * calculate 메서드의 반환값은 해당 연산의 결과이다.
+
+* 문자열을 분쇄기 객체를 생성한다. StringParser
+  * 기본 구분자를 가진 객체
+  * 커스텀 구분자 존재 시 추가한다.
+  * 구분자로 나눠진 녀석들은(숫자) Ingredient 객체로 생성된다.
+* Ingredient 객체
+  * 생성 시, 문자열 및 음수에 따른 validation
+
+<br>
+<br>
+<br>
+
+
+# 자동차 경주 게임
 
 ---
-1. 피드백 강의 전까지 미션 진행 
-> 피드백 강의 전까지 혼자 힘으로 미션 진행. 미션을 진행하면서 하나의 작업이 끝날 때 마다 add, commit
-> 예를 들어 다음 숫자 야구 게임의 경우 0, 1, 2단계까지 구현을 완료한 후 push
 
-![mission baseball](https://raw.githubusercontent.com/next-step/nextstep-docs/master/playground/images/mission_baseball.png)
+### 기능 요구사항
 
----
-2. 피드백 앞 단계까지 미션 구현을 완료한 후 피드백 강의를 학습한다.
 
----
-3. Git 브랜치를 master 또는 main으로 변경한 후 피드백을 반영하기 위한 새로운 브랜치를 생성한 후 처음부터 다시 미션 구현을 도전한다.
-
-```
-git branch -a // 모든 로컬 브랜치 확인
-git checkout master // 기본 브랜치가 master인 경우
-git checkout main // 기본 브랜치가 main인 경우
-
-git checkout -b 브랜치이름
-ex) git checkout -b apply-feedback
-```
+### 프로그래밍 요구사항
