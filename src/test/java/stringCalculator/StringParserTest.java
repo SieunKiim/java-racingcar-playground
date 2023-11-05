@@ -48,7 +48,7 @@ class StringParserTest {
 
     @Test
     void 문자열_파싱_기본_커스텀_구분자_2(){
-        List<Ingredient> parsed = stringParser.doParse("//;\n//|\n3,25,3,4,1");
+        List<Ingredient> parsed = stringParser.doParse("//;\n//@\n3,25,3,4,1");
         assertThat(parsed.size()).isEqualTo(5);
     }
 }
