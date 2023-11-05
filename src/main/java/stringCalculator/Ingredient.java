@@ -25,4 +25,8 @@ public class Ingredient {
         int parseInt = Integer.parseInt(s);
         return parseInt >= 0;
     }
+
+    public Integer getNum() {
+        return this.num;
+    }
 }
