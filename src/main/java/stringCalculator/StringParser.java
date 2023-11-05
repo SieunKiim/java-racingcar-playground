@@ -39,12 +39,13 @@ public class StringParser {
     }
 
     private void addCustomParser(String s) {
-        if (isValidLength(s) && isContainsParser(s)) {
-            Pattern pattern = Pattern.compile("(//)(.+)(\\n)");
-            Matcher matcher = pattern.matcher(s);
-            while (matcher.find()) {
-                tools.add(matcher.group(2));
-            }
+        if (!(isValidLength(s) && isContainsParser(s))) {
+            throw new RuntimeException("Incorrect parse format!");
+        }
+        Pattern pattern = Pattern.compile("(//)(.+)(\\n)");
+        Matcher matcher = pattern.matcher(s);
+        while (matcher.find()) {
+            tools.add(matcher.group(2));
         }
     }
 
