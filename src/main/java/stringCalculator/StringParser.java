@@ -28,8 +28,7 @@ public class StringParser {
 
     public List<Ingredient> doParse(String s) {
         addCustomParser(s);
-        Pattern pattern = Pattern.compile("((//.+\\n)*)(.*)");
-        Matcher matcher = pattern.matcher(s);
+        Matcher matcher = getMatcherByRegex("((//.+\\n)*)(.*)", s);
         String group = "";
         if (matcher.find()) {
             group = matcher.group(3);
@@ -42,8 +41,7 @@ public class StringParser {
         if (!isValidLength(s) && isContainsParser(s)) {
             throw new RuntimeException("Incorrect parse format!");
         }
-        Pattern pattern = Pattern.compile("(//)(.+)(\\n)");
-        Matcher matcher = pattern.matcher(s);
+        Matcher matcher = getMatcherByRegex("(//)(.+)(\\n)", s);
         while (matcher.find()) {
             tools.add(matcher.group(2));
         }
@@ -56,5 +54,10 @@ public class StringParser {
     private boolean isContainsParser(String s) {
         String regEx = "^//.+\n(.)*";
         return s.matches(regEx);
+    }
+
+    private Matcher getMatcherByRegex(String regex, String targetString) {
+        Pattern pat = Pattern.compile(regex);
+        return pat.matcher(targetString);
     }
 }
