@@ -1,26 +1,9 @@
-## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
+# Focused On
 
----
-## 학습 효과를 높이기 위해 추천하는 미션 진행 방법
+### 도메인 설계와 단위 테스트.
+* 요구사항에 맞는 도메인 객체 추출
+* 해당 도메인 내부 필요 기능들 열거 및 테스트 주도 개발.
 
----
-1. 피드백 강의 전까지 미션 진행 
-> 피드백 강의 전까지 혼자 힘으로 미션 진행. 미션을 진행하면서 하나의 작업이 끝날 때 마다 add, commit
-> 예를 들어 다음 숫자 야구 게임의 경우 0, 1, 2단계까지 구현을 완료한 후 push
-
-![mission baseball](https://raw.githubusercontent.com/next-step/nextstep-docs/master/playground/images/mission_baseball.png)
-
----
-2. 피드백 앞 단계까지 미션 구현을 완료한 후 피드백 강의를 학습한다.
-
----
-3. Git 브랜치를 master 또는 main으로 변경한 후 피드백을 반영하기 위한 새로운 브랜치를 생성한 후 처음부터 다시 미션 구현을 도전한다.
-
-```
-git branch -a // 모든 로컬 브랜치 확인
-git checkout master // 기본 브랜치가 master인 경우
-git checkout main // 기본 브랜치가 main인 경우
-
-git checkout -b 브랜치이름
-ex) git checkout -b apply-feedback
-```
+### 하지만, 도메인 로직에서 테스트 하기 어려운 부분들이 해당 기능의 상위 구현체의 테스트를 어렵게함.
+* 랜덤 및 기타 확률에 의한 동작이 예로 들 수 있음
+* 위와 같은 상황에서 테스트를 애매하게 하는 로직의 격리를 통해 보완할 수 있음.
