@@ -11,8 +11,8 @@ public class Car {
         return this.position;
     }
 
-    public Position move(int num){
-        if (num >= 4) {
+    public Position move(MovingStrategy ms){
+        if (ms.movable()) {
             position.forward();
         }
         return this.position;

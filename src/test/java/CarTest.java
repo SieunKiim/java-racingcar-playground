@@ -21,7 +21,12 @@ public class CarTest {
     @Test
     void 자동차_이동(){
         Car car = new Car("sieun");
-        car.move(4);
+        car.move(new MovingStrategy() {
+            @Override
+            public boolean movable() {
+                return true;
+            }
+        });
         Position position = new Position(1);
         assertThat(car.getPosition()).isEqualTo(position);
     }
@@ -29,7 +34,12 @@ public class CarTest {
     @Test
     void 자동차_이동_실패(){
         Car car = new Car("sieun");
-        car.move(3);
+        car.move(new MovingStrategy() {
+            @Override
+            public boolean movable() {
+                return false;
+            }
+        });
         Position position = new Position(0);
         assertThat(car.getPosition()).isEqualTo(position);
     }
