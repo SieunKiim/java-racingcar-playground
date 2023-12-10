@@ -9,5 +9,29 @@
 * 위와 같은 상황에서 테스트를 애매하게 하는 로직의 격리를 통해 보완할 수 있음.
 
 랜덤과 같은 녀석 (실행 시 마다 변동되는)은 protected를 통해서 테스트상 특정 내용을 Override하여 각 상황에 대한 테스트를 가능하게 한다.
+(혹은 상위 객체로 의존성을 넘겨라.)
 
-혹은 상위 객체로 의존성을 넘겨라.
+
+### 설계 (bold는 method를 의미한다)
+
+#### Race (Objec)
+* list [Car]
+* 시도 횟수
+* **startGame**
+* **result** (결과 출력)
+
+#### Car (Object)
+* Name
+* Position
+* **move**
+  * 규칙 (interface) 선언
+* **객체 출력**
+
+#### Name
+* 이름
+* **validation**
+
+#### Position
+* 위치
+* **validation**
+* **위치값 변경**
