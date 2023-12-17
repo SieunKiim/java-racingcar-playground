@@ -1,4 +1,4 @@
-public class Position {
+public class Position implements Comparable<Position>{
     private int position;
 
     public Position(){
@@ -21,6 +21,16 @@ public class Position {
         }
         Position obj1 = (Position) obj;
         return this.position == obj1.position;
+    }
+
+    @Override
+    public String toString() {
+        return "-".repeat(position);
+    }
+
+    @Override
+    public int compareTo(Position o) {
+        return this.position - o.position;
     }
 }
 
